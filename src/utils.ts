@@ -1,5 +1,6 @@
 import dayjs from 'dayjs'
 import React from 'react'
+import 'dayjs/locale/th';
 
 import { OVERLAP_PADDING } from './commonStyles'
 import { ICalendarEvent, Mode, WeekNum } from './interfaces'
@@ -9,7 +10,7 @@ export const typedMemo: <T>(c: T) => T = React.memo
 
 export const DAY_MINUTES = 1440
 
-export function getDatesInMonth(date: Date | dayjs.Dayjs = new Date(), locale = 'en') {
+export function getDatesInMonth(date: Date | dayjs.Dayjs = new Date(), locale = 'th') {
   const subject = dayjs(date)
   const days = Array(subject.daysInMonth() - 1)
     .fill(0)
@@ -22,7 +23,7 @@ export function getDatesInMonth(date: Date | dayjs.Dayjs = new Date(), locale = 
 export function getDatesInWeek(
   date: Date | dayjs.Dayjs = new Date(),
   weekStartsOn: WeekNum = 0,
-  locale = 'en',
+  locale = 'th',
 ) {
   const subject = dayjs(date)
   const subjectDOW = subject.day()
@@ -36,7 +37,7 @@ export function getDatesInWeek(
   return days
 }
 
-export function getDatesInNextThreeDays(date: Date | dayjs.Dayjs = new Date(), locale = 'en') {
+export function getDatesInNextThreeDays(date: Date | dayjs.Dayjs = new Date(), locale = 'th') {
   const subject = dayjs(date).locale(locale)
   const days = Array(3)
     .fill(0)
@@ -46,7 +47,7 @@ export function getDatesInNextThreeDays(date: Date | dayjs.Dayjs = new Date(), l
   return days
 }
 
-export function getDatesInNextOneDay(date: Date | dayjs.Dayjs = new Date(), locale = 'en') {
+export function getDatesInNextOneDay(date: Date | dayjs.Dayjs = new Date(), locale = 'th') {
   const subject = dayjs(date).locale(locale)
   const days = Array(1)
     .fill(0)
@@ -176,7 +177,7 @@ export function getDatesInNextCustomDays(
   date: Date | dayjs.Dayjs = new Date(),
   weekStartsOn: WeekNum = 0,
   weekEndsOn: WeekNum = 6,
-  locale = 'en',
+  locale = 'th',
 ) {
   const subject = dayjs(date)
   const subjectDOW = subject.day()
