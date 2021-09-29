@@ -1,10 +1,18 @@
+import 'dayjs/locale/th'
+
 import dayjs from 'dayjs'
+import updateLocale from 'dayjs/plugin/updateLocale'
 import React from 'react'
-import 'dayjs/locale/th';
 
 import { OVERLAP_PADDING } from './commonStyles'
 import { ICalendarEvent, Mode, WeekNum } from './interfaces'
 import { Palette } from './theme/ThemeInterface'
+
+dayjs.extend(updateLocale)
+
+dayjs.updateLocale('th', {
+  weekdaysShort: 'อาทิตย์_จันทร์_อังคาร_พุธ_พฤหัสบดี_ศุกร์_เสาร์'.split('_'),
+})
 
 export const typedMemo: <T>(c: T) => T = React.memo
 
